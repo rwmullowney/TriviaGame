@@ -4,7 +4,7 @@
     var questionBank = [
 
         question1 = {
-            question: "This is question 1",
+            question: "This is question 2",
             answer1: 'answer1.1',
             answer2: 'answer1.2',
             answer3: 'answer1.3',
@@ -92,16 +92,19 @@
         // Present the question on the page
         displayQuestion(i);
 
-
         intervalVar;
-
         timeoutVar;
 
         $(".btn").on('click', function () {
             clearTimeout(timeoutVar);
             clearInterval(intervalVar);
-            $('#timeRemaining').html("<h3 id='timeRemaining'>Your guess is right/wrong</h3>");
-            $('#gameContent').html("You clicked a button for the question");
+            if ($(this).attr('id') === 'wrong') {
+                $('#timeRemaining').html("<h3 id='timeRemaining'>Your guess is wrong</h3>");
+                $('#gameContent').html("You clicked a button for the question");
+            } else {
+                $('#timeRemaining').html("<h3 id='timeRemaining'>Your guess is right</h3>");
+                $('#gameContent').html("You clicked a button for the question");
+            }
         })
     }
 
