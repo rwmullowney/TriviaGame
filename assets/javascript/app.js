@@ -47,7 +47,7 @@
 
         // If the timer runs out, you clear the variable that was tied to your interval so the timer stops
         if (timer === 0) {
-            clearInterval(decrementVar);
+            clearInterval(intervalVar);
         }
     }
 
@@ -70,17 +70,21 @@
     // Present information if the timer runs out (probably adjust score variables and such here too since the player won't get points)
     function timeUp() {
         $('#timeRemaining').html("<h3 id='timeRemaining'>Time's Up!</h3>");
-        $('#gameContent').html("Bullshit about the question")
+        $('#gameContent').html("Info about the question")
     }
 
-    // Define decrementVar on the outer scope so it can be used in 'decrement' function
-    var decrementVar;
+    // Define intervalVar on the outer scope so it can be used in 'decrement' function
+    var intervalVar;
 
     // Function to initialize the game once the startGame button is clicked
     function initGame() {
-        // Variables for my timers so I can disable them on certain conditions
-        decrementVar = setInterval(decrement, 1000);
+
+        // Variables for my timers so I can disable them on certain conditions (intervalVar defined on outer scope above)
+        intervalVar = setInterval(decrement, 1000);
         var timeoutVar = setTimeout(timeUp, 1000 * 10);
+
+        // Remove the 'Click button to begin!' text
+        $('h4').remove();
 
         // Remove the 'Start Game' button
         $('#startGame').remove();
@@ -89,9 +93,16 @@
         displayQuestion(i);
 
 
-        decrementVar;
+        intervalVar;
 
         timeoutVar;
+
+        $(".btn").on('click', function () {
+            clearTimeout(timeoutVar);
+            clearInterval(intervalVar);
+            $('#timeRemaining').html("<h3 id='timeRemaining'>Your guess is right/wrong</h3>");
+            $('#gameContent').html("You clicked a button for the question");
+        })
     }
 
     $('#startGame').on('click', function () {
