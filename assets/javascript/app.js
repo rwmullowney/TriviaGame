@@ -46,7 +46,7 @@
         }
     ]
 
-    var timer = 60; // Defines variable to track timer
+    var timer = 90; // Defines variable to track timer
     var points = 0; // Defines variable to track score
 
     var i = 0 // Track index of questionBank
