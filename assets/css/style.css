@@ -11,7 +11,7 @@ body {
 /* Header */
 
 h1,
-h3 {
+h3, h4 {
     text-align: center;
     margin-top: 20px;
 }
@@ -20,6 +20,7 @@ h3 {
     max-height: 100px;
     max-width: 640px;
     background-color: rgba(0, 0, 0, 0.5);
+    margin-left: 0px;
 }
 
 .oscar {
@@ -37,7 +38,7 @@ h3 {
 .maincontent {
     height: 640px;
     width: 640px;
-    color: white;
+    color: rgb(240, 248, 255);
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -46,7 +47,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-h3 {
+h3, h4 {
     margin-top: 25px;
 }
 

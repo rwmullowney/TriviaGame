@@ -11,38 +11,38 @@
 
         question1 = {
             buttonName: 'q1',
-            question: "This is question 1",
-            answer1: 'answer1.1',
-            answer2: 'answer1.2',
-            answer3: 'answer1.3',
-            correctAnswer: 'correctAnswer1'
+            question: "Leonardo Dicaprio received the Oscar for Best Actor for his performance in what movie?",
+            answer1: 'Wolf of Wall Street',
+            answer2: 'The Departed',
+            answer3: 'Blood Diamond',
+            correctAnswer: 'The Revenant'
         },
 
         question2 = {
             buttonName: 'q2',
-            question: "This is question 2",
-            answer1: 'answer2.1',
-            answer2: 'answer2.2',
-            answer3: 'answer2.3',
-            correctAnswer: 'correctAnswer2'
+            question: "Adjusted for inflation, what is the highest grossing film of all time?",
+            answer1: 'Avatar',
+            answer2: 'The Sound of Music',
+            answer3: 'Titanic',
+            correctAnswer: 'Gone With The Wind'
         },
 
         question3 = {
             buttonName: 'q3',
-            question: "This is question 3",
-            answer1: 'answer3.1',
-            answer2: 'answer3.2',
-            answer3: 'answer3.3',
-            correctAnswer: 'correctAnswer3'
+            question: "Which movie won the Oscar for Best Picture in 2011?",
+            answer1: 'Hugo',
+            answer2: 'Moneyball',
+            answer3: 'The Descendants',
+            correctAnswer: 'The Artist'
         },
 
         question4 = {
             buttonName: 'q4',
-            question: "This is question 4",
-            answer1: 'answer4.1',
-            answer2: 'answer4.2',
-            answer3: 'answer4.3',
-            correctAnswer: 'correctAnswer4'
+            question: "What movie was mistakenly announced as the winner of the 2016 Oscar for Best Picture, when the real winner was Moonlight?",
+            answer1: 'Manchester by the Sea',
+            answer2: 'Arrival',
+            answer3: 'Hell or High Water',
+            correctAnswer: 'La La Land'
         }
     ]
 
@@ -69,7 +69,7 @@
 
     
     function displayQuestion(i) { // Function to display the question on the page
-        $('#gameContent').append("<h3 class='border-top pt-3'>" + questionBank[i].question + '</h3>');
+        $('#gameContent').append("<h4 class='border-top'>" + questionBank[i].question + '</h4>');
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer1);
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer2);
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer3);
@@ -81,22 +81,19 @@
         $('h3').remove(); // Remove the 'Click button to begin!' text
         $('#startGame').remove(); // Remove the 'Start Game' button
 
-        $('#timeRemaining').html("<h3 id='timeRemaining'> Time remaining: " + timer + '</h3>'); // Add the game clock
+        $('#timeRemaining').html("<h3  id='timeRemaining'> Time remaining: " + timer + '</h3>'); // Add the game clock
         intervalVar = setInterval(decrement, 1000); // Start counting down the game clock
         for (var i = 0; i < questionBank.length; i++) { // for loop cycles through the questions in the questionBank
             displayQuestion(i); // ...and then displays each question and it's answers on the page
         }
-        $('#gameContent').append("<br><button class='btn btn-primary mt-3 mb-4' id='done'>Done</button>")
+        $('#gameContent').append("<br><button class='btn btn-primary my-4' id='done'>Done</button>")
     }
 
 
     function score() {
-        $(document).ready(function() {
-            $('input:radio').change(function(){
-                return points = $('.correct:checked').length
-            })
+        points = $('input:correctAnswer:checked').length
         $('#playerScore').html("Your Score: " + points)
-        });
+        };
         // for (var i = 0; i < questionBank.length; i++) {
         //     if ($(".correct" + (i+1)).is(':checked')){
         //         console.log("It's correct!"); 
@@ -108,7 +105,6 @@
             //     console.log("It's wrong")
             // }
         // }
-    }
 
     function gameResults() { // Function to display the results of the game upon it ending
         $('#timeRemaining').remove(); // Removes the timer and game content
