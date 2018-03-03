@@ -1,8 +1,56 @@
 /* Displays the entire background image (avoids scaling that macs do) */
-body{
-    width:100%;
-    height:100%; 
+
+body {
+    width: 100%;
+    height: 100%;
     background: url(../images/stage.jpg) center center no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+/* Header */
+
+h1,
+h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.header {
+    max-height: 100px;
+    max-width: 640px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.oscar {
+    max-height: 100px;
+}
+
+/* Main page content */
+
+#startGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maincontent {
+    height: 640px;
+    width: 640px;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.questions {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    margin-top: 25px;
+}
+
+input {
+    margin-left: 10px;
+    margin-right: 10px;
 }

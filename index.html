@@ -13,15 +13,29 @@
 
 
 <body>
-    <h1>Movie Trivia</h1>
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="maincontent">
+            <div class='header row justify-content-center rounded'>
+                <img class='img-fluid oscar' src="./assets/images/oscar.png" alt="An Oscar award">
+                <h1>Movie Trivia</h1>
+                <img class='img-fluid oscar' src="./assets/images/oscar-resized.png" alt="An Oscar award">
+            </div>
 
-    <h4>Click the button below to begin!  You will have 30 seconds to complete the questions.</h4>
-    <div id="timeRemaining"></div> 
-    <div id="gameContent"></div>
-    <div id="playerScore"></div>
+            <div class="rounded questions">
+                <h3 class='pt-3'>Click the button below to begin! You will have 30 seconds to complete the questions.</h3>
+                <div id="timeRemaining"></div>
+                <div class='text-center' id="gameContent"></div>
+                <div id="playerScore"></div>
 
-    <button class='btn btn-primary' id='startGame'>Start Game</button>
-    
+                <div class="start mt-4 d-flex justify-content-center">
+                    <button class='btn btn-primary mb-3' id='startGame'>Start Game</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </body>
 
 <!-- jQuery -->

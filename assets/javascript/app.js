@@ -46,7 +46,7 @@
         }
     ]
 
-    var timer = 15; // Defines variable to track timer
+    var timer = 60; // Defines variable to track timer
     var points = 0; // Defines variable to track score
 
     var i = 0 // Track index of questionBank
@@ -69,7 +69,7 @@
 
     
     function displayQuestion(i) { // Function to display the question on the page
-        $('#gameContent').append('<h3>' + questionBank[i].question + '</h3>');
+        $('#gameContent').append("<h3 class='border-top pt-3'>" + questionBank[i].question + '</h3>');
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer1);
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer2);
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer3);
@@ -78,7 +78,7 @@
 
 
     function initGame() { // Function to initialize the game once the startGame button is clicked
-        $('h4').remove(); // Remove the 'Click button to begin!' text
+        $('h3').remove(); // Remove the 'Click button to begin!' text
         $('#startGame').remove(); // Remove the 'Start Game' button
 
         $('#timeRemaining').html("<h3 id='timeRemaining'> Time remaining: " + timer + '</h3>'); // Add the game clock
@@ -86,7 +86,7 @@
         for (var i = 0; i < questionBank.length; i++) { // for loop cycles through the questions in the questionBank
             displayQuestion(i); // ...and then displays each question and it's answers on the page
         }
-        $('#gameContent').append("<br><button class='btn btn-primary' id='done'>Done</button>")
+        $('#gameContent').append("<br><button class='btn btn-primary mt-3 mb-4' id='done'>Done</button>")
     }
 
 
