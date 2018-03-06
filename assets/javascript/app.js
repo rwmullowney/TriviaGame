@@ -9,7 +9,7 @@
     // Create the array that stores the 'question' objects
     var questionBank = [
 
-        question1 = {
+        {
             buttonName: 'q1',
             question: "Leonardo Dicaprio received the Oscar for Best Actor for his performance in what movie?",
             answer1: 'Wolf of Wall Street',
@@ -18,7 +18,7 @@
             correctAnswer: 'The Revenant'
         },
 
-        question2 = {
+        {
             buttonName: 'q2',
             question: "Adjusted for inflation, what is the highest grossing film of all time?",
             answer1: 'Avatar',
@@ -27,7 +27,7 @@
             correctAnswer: 'Gone With The Wind'
         },
 
-        question3 = {
+        {
             buttonName: 'q3',
             question: "Which movie won the Oscar for Best Picture in 2011?",
             answer1: 'Hugo',
@@ -36,7 +36,7 @@
             correctAnswer: 'The Artist'
         },
 
-        question4 = {
+        {
             buttonName: 'q4',
             question: "What movie was mistakenly announced as the winner of the 2016 Oscar for Best Picture, when the real winner was Moonlight?",
             answer1: 'Manchester by the Sea',
@@ -67,7 +67,7 @@
     }
 
 
-    
+
     function displayQuestion(i) { // Function to display the question on the page
         $('#gameContent').append("<h4 class='border-top'>" + questionBank[i].question + '</h4>');
         $('#gameContent').append("<input type='radio' name='" + questionBank[i].buttonName + "' class='wrong'>" + questionBank[i].answer1);
@@ -90,27 +90,27 @@
     }
 
 
-    function score() {
-        points = $('input:correctAnswer:checked').length
+    function score(points) {
         $('#playerScore').html("Your Score: " + points)
-        };
-        // for (var i = 0; i < questionBank.length; i++) {
-        //     if ($(".correct" + (i+1)).is(':checked')){
-        //         console.log("It's correct!"); 
-            // if q1 && isclass(correct1) {score++}
-            // subtract correct from the total number of questions (questionBank.length?) to find the incorrect
+    };
+    // for (var i = 0; i < questionBank.length; i++) {
+    //     if ($(".correct" + (i+1)).is(':checked')){
+    //         console.log("It's correct!"); 
+    // if q1 && isclass(correct1) {score++}
+    // subtract correct from the total number of questions (questionBank.length?) to find the incorrect
 
-            // ????
-            // if ($('#q' + (i + 1)).val === 'wrong') {
-            //     console.log("It's wrong")
-            // }
-        // }
+    // ????
+    // if ($('#q' + (i + 1)).val === 'wrong') {
+    //     console.log("It's wrong")
+    // }
+    // }
 
     function gameResults() { // Function to display the results of the game upon it ending
+        var points = $('input.correctAnswer:checked').length; // The ':' colon is for pseudoclasses ONLY, like '.' for classes and '#' for IDs        
+
         $('#timeRemaining').remove(); // Removes the timer and game content
         $('#gameContent').remove();
-
-        score();
+        score(points);
     }
 
 
